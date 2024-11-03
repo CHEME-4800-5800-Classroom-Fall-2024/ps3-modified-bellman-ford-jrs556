@@ -19,7 +19,8 @@ mutable struct MyGraphNodeModel <: MyAbstractGraphNodeModel
   capacity::Union{Nothing, Tuple{Int64, Int64}}; # node capacity {MaxInDegree, MaxOutDegree}
  
   # constructor -
-  MyGraphNodeModel(id::Int64, capacity::Union{Nothing, Int64}) = new(id, capacity);
+  # MyGraphNodeModel(id::Int64, capacity::Union{Nothing, Tuple{Int64, Int64}}) = new(id, capacity);
+  MyGraphNodeModel() = new();
 end
  
 """
