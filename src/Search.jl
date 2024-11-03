@@ -145,12 +145,8 @@ function _search(graph::T, start::MyGraphNodeModel, algorithm::ModifiedBellmanFo
   
               alt = distances[u] + weight(graph, u, v);
               if alt < distances[v]
-                if nodes.capacity < 1
-                    distances[v] = alt;
-                    previous[v] = u;
-                end
-                else 
-                    #?????
+                distances[v] = alt;
+                previous[v] = u;
               end
           end
   

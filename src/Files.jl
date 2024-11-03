@@ -64,7 +64,8 @@ function readnodecapacityfile(filepath::String; comment::Char='#',
 
     # initialize
     capacities = Dict{Int64,Tuple{Int64,Int64}}()
-    
+    linecounter2 = 0;
+
     # TODO: implement this function
         # main -
         open(filepath, "r") do file # open a stream to the file
@@ -80,12 +81,19 @@ function readnodecapacityfile(filepath::String; comment::Char='#',
                 if (length(parts) != 3)
                     push!(parts, "1.0"); # add a default weight, if we need to
                 end
-    
-                # build the edge model -
-                capacities[linecounter] = _build(MyGraphNodeModel, parts, linecounter);
+
+                # create fields of correct type -
+                id = parts[1] |> x-> parse(Int,x);
+                indeg = parts[2] |> x-> parse(Int,x);
+                outdeg = parts[3] |> x-> parse(Int,x);
+
+                degree_tuple = (indeg, outdeg);
+
+                # build the capacity model -
+                capacities[id] = degree_tuple;
     
                 # update the line counter -
-                linecounter += 1;
+                linecounter2 += 1;
             end
         end
 
