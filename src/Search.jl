@@ -107,7 +107,7 @@ function _search(graph::T, start::MyGraphNodeModel, algorithm::BellmanFordAlgori
         end
     end
 
-    # check fo
+    # return -
     return distances, previous;
 end
 
@@ -133,11 +133,7 @@ function _search(graph::T, start::MyGraphNodeModel, algorithm::ModifiedBellmanFo
     nodes = graph.nodes;
     number_of_nodes = length(nodes);
     
-    # TODO: implement this function
-    throw("ModifiedBellmanFordAlgorithm not implemented");
-
-    # return -
-    return distances, previous;
+   return _search(graph, start,BellmanFodAlgorith());
 end
 
 
